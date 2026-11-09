@@ -1,4 +1,4 @@
-_# Object-oriented game simulator
+# Object-oriented game simulator
 # Turid Torheim, NMBU, 2026
 
 class Character:
@@ -16,6 +16,7 @@ class Character:
         self._hp = hp_max  # Note: _hp indicated private attribute
         self.hp_max = hp_max
         self.damage = damage
+
 
     def attack(self, target) -> None:
         """Attack and deal damage to target character"""
