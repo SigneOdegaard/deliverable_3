@@ -7,18 +7,20 @@
 class Character:
     """Represents a character in the RPG"""
 
-    def __init__(self, name: str, hp_max: int = 100, damage: int = 10) -> None:
+    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, weapon: weapon | None = None) -> None:
         """
         Initialise the Character
         Args:
             name (str): The name of the character.
             hp_max (int): Max hit points (default = 100)
             damage (int): Damage delt when character attacks (default = 10)
+            weapon (Weapon | None): The optional weapon the character can wield (default = None)
         """
         self.name = name
         self._hp = hp_max  # Note: _hp indicated private attribute
         self.hp_max = hp_max
         self.damage = damage
+        self.weapon = weapon  # Optional weapon attribute, default is None
 
 
         # New method - Point 1:
@@ -35,10 +37,15 @@ class Character:
         self._hp = min(self._hp, self.hp_max)
 
 
-        # New methid - Point 3:
+        # New method - Point 3:
     def attack(self, target) -> None:
-    """Angriper en annen karakter og påfører skade."""
-    target.take_damage(self.damage)
+        """Attacks another character and deals damage."""
+        if self.weapon is not None:
+            damage_dealt = self.weapon.roll_damage()
+        else:
+            damage_dealt = self.damage
+
+        target.take_damage(damage_dealt)
 
 
 
