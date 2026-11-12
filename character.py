@@ -4,10 +4,12 @@
 # Object-oriented game simulator
 # Turid Torheim, NMBU, 2026
 
+from items import Weapon
+
 class Character:
     """Represents a character in the RPG"""
 
-    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, weapon: weapon | None = None) -> None:
+    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, weapon: Weapon | None = None) -> None:
         """
         Initialise the Character
         Args:
@@ -80,7 +82,7 @@ class Character:
 # Warrior subclass
 
 class Warrior(Character):
-     """
+    """
     Represents a warrior character with defensive armor.
 
     Inherits attributes and methods from the Character class
@@ -90,8 +92,8 @@ class Warrior(Character):
         armor (int): The amount of damage absorbed by the warrior's armor.
     """
 
-    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, armor: int = 5):
-        super().__init__(name, hp_max, damage)
+    def __init__(self, name: str, hp_max: int = 100, damage: int = 10, armor: int = 5, weapon: Weapon | None = None):
+        super().__init__(name, hp_max, damage, weapon)
         self.armor = armor
 
 # Overriding: Method that subtracts the full amount of damage from HP
@@ -122,9 +124,9 @@ class Mage(Character):
 
     def __init__(self, name: str, hp_max: int = 100, damage: int = 10,
              mana: int = 30, mana_max: int = 30, weapon=None):
-    super().__init__(name, hp_max, damage, weapon)
-    self.mana = mana
-    self.mana_max = mana_max 
+        super().__init__(name, hp_max, damage, weapon)
+        self.mana = mana
+        self.mana_max = mana_max 
 
     # mana: int = 30 - gives the Mage 30 mana by default
     # mana_max: int = 30 - sets the maximum mana to 30
@@ -154,4 +156,3 @@ class Mage(Character):
     # self.mana = min(self.mana + 5, self.mana_max) restores 5 mana without allowing the mana to exceed the maximum
 
 
- 

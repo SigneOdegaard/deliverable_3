@@ -37,7 +37,7 @@ class Dice:
 
 # Adds a __repr__ method that returns string representations like Dice(sides=6)
 # --> Create a method that provides a string representation of the dice object:
-     def __repr__(self) -> str:
+    def __repr__(self) -> str:
         """Returns a string representation of the dice."""
         return f"Dice(sides={self.sides})"
 
@@ -48,7 +48,7 @@ class Dice:
 
 # Implement a __call__ method that allow you to roll the dice
 # --> We want to use the dice object as if it were a function
-     def __call__(self) -> int:
+    def __call__(self) -> int:
         """Allows the dice object to be called like a function."""
         return self.roll()
 
