@@ -1,6 +1,8 @@
 # TASK 5
 
 from character import Character
+from character import Warrior
+from character import Mage
 
 class Battle:
     """
@@ -48,6 +50,19 @@ class Battle:
         """Simulates the battle until one character is defeated."""
 
         round_number = 0
+
+        print(f"Fighters! enter the arena!")
+        self.hero.introduce()
+        if isinstance(self.hero, Warrior):
+            print(f"{self.hero.name} is a mighty Warrior and is equipped with armor!")
+        if isinstance(self.hero, Mage):
+            print(f"{self.hero.name} is a powerful Mage and is equipped with magical mana!")
+
+        self.enemy.introduce()
+        if isinstance(self.enemy, Warrior):
+            print(f"{self.enemy.name} is a mighty Warrior and is equipped with armor!")
+        if isinstance(self.enemy, Mage):
+            print(f"{self.enemy.name} is a powerful Mage and is equipped with magical mana!")
 
         print(f"Battle between {self.hero.name} and {self.enemy.name} begins!")
 
