@@ -1,0 +1,4 @@
+Packages Used in the RPG Project:
+
+random 
+notebook 
